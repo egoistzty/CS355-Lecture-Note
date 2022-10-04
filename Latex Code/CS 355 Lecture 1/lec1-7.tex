@@ -1,0 +1,16 @@
+\vspace{1em}
+\begin{tikzpicture}
+  \node (OWF) at (0,0) {\Large OWFs};
+  \node[right = 1.5 of OWF] (PRG) {\Large PRGs};
+  \node[right = 1.5 of PRG] (PRF) {\Large PRFs};
+  \node[right = 1.5 of PRF] (PRP) {\Large PRPs};
+  
+  \draw[->] (OWF.north east) to [out=90,in=90, edge node={node [above, align = center] {\footnotesize Goldreich-Levin, HILL \\\footnotesize Blum-Micali}}] (PRG.north west);
+  \draw[->] (PRG.north east) to [out=90,in=90, edge node={node [above, align = center] {\footnotesize Goldreich-Goldwasser-Micali}}] (PRF.north west);
+  \draw[->] (PRF.north east) to [out=90,in=90, edge node={node [above, align = center] {\footnotesize Luby-Rackoff}}] (PRP.north west);
+
+  \draw[->] (PRP.south west) to [out=270,in=270, edge node={node [below, align = center] {\footnotesize switching lemma}}] (PRF.south east);
+  \draw[->] (PRF.south west) to [out=270,in=270, edge node={node [below, align = center] {\footnotesize counter mode}}] (PRG.south east);
+  \draw[->] (PRG.south west) to [out=270,in=270, edge node={node [below, align = center] {\footnotesize immediate}}] (OWF.south east);
+\end{tikzpicture}
+\vspace{1em}

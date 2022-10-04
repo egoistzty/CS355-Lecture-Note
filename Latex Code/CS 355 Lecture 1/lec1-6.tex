@@ -1,0 +1,25 @@
+\vspace{1em}
+\begin{center}
+\begin{tikzpicture}[>=latex]
+    \node[draw,rectangle,minimum width = 4cm,minimum height = 3cm] (A) at (-3.5,0) {};
+    \node[draw,rectangle,minimum width = 4cm,minimum height = 3cm] (C) at (3.5,0) {};
+    
+    \draw[->] (line1) ($ (A) + (2.7,0.5) $) -- ($ (C) + (-2.7,0.5) $);
+    \draw[->] (line2) ($ (C) + (-2.7,-0.5) $) -- ($ (A) + (2.7,-0.5) $);
+    
+    \node[above=0 of A] (adv) {adversary};
+    \node[above=0 of C] (cha) {challenger};
+    \node[above=0.5 of line1] (m1) {$x \in \mathcal{X}$};
+    \node[above=-0.5 of line2] (m2) {$y$};
+    
+    \node[above=-1.5 of A] (Astep) {$b' \in \{ 0,1 \}$};
+    \node[above=-2.5 of C, align = center] (Cstep) {
+    if $b=0: k \leftarrow \mathcal{K}$ \\ 
+    if $b=1: f \overset{\mathrm{R}}{\leftarrow} \mathrm{Funs}[\mathcal{X},\mathcal{Y}]$ \\
+    if $b=0: y \leftarrow \mathrm{F}(k,x)$ \\
+    if $b=1: y \leftarrow \mathrm{f}(x)$
+    };
+    
+\end{tikzpicture}
+\end{center}
+\vspace{1em}

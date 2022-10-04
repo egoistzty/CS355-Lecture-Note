@@ -1,0 +1,48 @@
+% TIMELINE - simple test
+\vspace{1em}
+\begin{tikzpicture}[]
+
+\tikzset{
+  font={\fontsize{7pt}{6}\selectfont}}
+  
+  % limits
+  \newcount\yearOne; \yearOne=1960
+  \def\w{12}    % width of axes
+  \def\n{4}     % number of decades
+  \def\lt{0.2} %  ten tick length
+  \def\lf{0} % five tick length
+  \def\lo{0} %  one tick length
+ 
+  % help functions: Label with no year  
+  \def\commentLabel(#1,#2){
+  \def\x{{(#1-1970)*\w/(\n*10)}}
+  \draw[thick] (\x,0) -- (\x,-0) % ten tick
+  +(0,\lt*2)node[above,black,align=center] {#2};
+  %+(0,\lt*2)node[above] {#1} 
+  }
+  
+  % help functions: Label with year   
+  \def\yearLabel(#1,#2){
+  \def\x{{(#1-1970)*\w/(\n*10)}}
+  \draw[thick] (\x,\lt) -- (\x,-\lt) % ten tick
+  node[below] {#1} 
+  +(0,-\lt*2)node[below,black,align=center] {#2};
+  }
+  
+  % draw the time axis
+  \draw[->,thick] (-\w*0.03,0) -- (\w*1.03,0);
+
+  % label
+    \commentLabel(1976, discrete log \\ factoring)
+    \yearLabel(1974, ``New directions in \\ cryptography'')
+    \yearLabel(1982, 2PC)
+    \yearLabel(1984, ZKP)
+    \yearLabel(2001, Pairings)    
+    \yearLabel(2005, Lattice)        
+    \yearLabel(2009, FHE)       
+    \node (rect) at (1,0) [draw,dashed,minimum width=3.5cm,minimum height=3cm] {};
+    \node at (1,-2) [align=center] {CS255 \\ symmetric encryption, MACs, \\ public-key encryption, signatures};
+    \draw[decorate,decoration={brace,mirror}] (3.5, -1.5) -- (12, -1.5);
+    \node at (7.75,-2) [align=center] {CS355};
+\end{tikzpicture}
+\vspace{1em}

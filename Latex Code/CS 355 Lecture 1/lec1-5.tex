@@ -1,0 +1,38 @@
+\vspace{1em}
+\begin{center}
+\begin{tikzpicture}[trafo/.style={midway,font=\tiny}]
+
+  \def\hd{1}\def\vd{1}
+
+  \def\arrowdraw(#1,#2){
+  \draw[->] ($ (#1) + (\hd/3,0) $) -- ($ (#2) + (-\hd/2.5,0) $);
+  }
+  
+\def\darrowdraw(#1,#2){
+  \draw[->] ($ (#1) + (0,-\vd/3) $) -- ($ (#2) + (0,\vd/3) $);
+  }
+  
+  \node (S0) at (0,0) {$S_1$};
+  \node[right=\hd of S0, draw] (G1) {$\mathcal{G}$};
+  \node[right=\hd of G1] (S1) {$S_2$};
+  \node[right=\hd of S1, draw] (G2) {$\mathcal{G}$};
+  \node[right=\hd of G2] (more) {$\cdots$};
+  \node[right=\hd of more, draw] (G3) {$\mathcal{G}$};
+  \node[right=\hd of G3] (S2) {$S_{n+1}$};
+  
+  \node[below=\vd of G1] (b1) {$b_2$};
+  \node[below=\vd of G2] (b2) {$b_3$};
+  \node[below=\vd of G3] (b3) {$b_n$};
+
+  \arrowdraw(S0,G1);
+  \arrowdraw(G1,S1);
+  \arrowdraw(S1,G2);
+  \arrowdraw(G2,more);
+  \arrowdraw(more,G3);
+  \arrowdraw(G3,S2);
+  
+  \darrowdraw(G1,b1);
+  \darrowdraw(G2,b2);
+  \darrowdraw(G3,b3);
+\end{tikzpicture}
+\end{center}

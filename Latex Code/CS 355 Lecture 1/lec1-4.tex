@@ -1,0 +1,97 @@
+\vspace{1em}
+\begin{center}
+\begin{tikzpicture}[trafo/.style={midway,font=\tiny}]
+
+  \def\hd{1}\def\vd{1}
+
+  \def\arrowdraw(#1,#2){
+  \draw[->] ($ (#1) + (\hd/3,0) $) -- ($ (#2) + (-\hd/3,0) $);
+  }
+  
+\def\darrowdraw(#1,#2){
+  \draw[->] ($ (#1) + (0,-\hd/3) $) -- ($ (#2) + (0,\hd/3) $);
+  }
+  
+  % Row 1
+  \node (case1) at (-2,0) {$D_1 = D_{1,0}$};
+  \node (S0) at (0,0) {$S_0$};
+  \node[right=\hd of S0, draw] (G1) {$\mathcal{G}$};
+  \node[right=\hd of G1] (S1) {$S_1$};
+  \node[right=\hd of S1, draw] (G2) {$\mathcal{G}$};
+  \node[right=\hd of G2] (S2) {$S_2$};
+  \node[right=\hd of S2, draw] (G3) {$\mathcal{G}$};
+  \node[right=\hd of G3] (more) {$\cdots$};
+
+  
+  \node[below=\vd of G1] (b1) {$b_1$};
+  \node[below=\vd of G2] (b2) {$b_2$};
+  \node[below=\vd of G3] (b3) {$b_3$};
+  
+  \arrowdraw(S0,G1);
+  \arrowdraw(G1,S1);
+  \arrowdraw(S1,G2);
+  \arrowdraw(G2,S2);
+  \arrowdraw(S2,G3);
+  \arrowdraw(G3,more);
+  
+  \darrowdraw(G1,b1);
+  \darrowdraw(G2,b2);
+  \darrowdraw(G3,b3);
+  
+  % Row 2
+  \node[below=\vd*2 of case1] (case2) {$D_{1,1}$};
+  \node[below=\vd of S0] (S0-2) {\color{red}\footnotesize $S_0 \overset{\mathrm{R}}{\leftarrow} \{0,1\}^{\lambda}$};
+  
+  \node[below=\vd*2 of S1] (S1-2) {\color{green} $S_1$};
+  \node[right=\hd of S1-2, draw] (G2-2) {$\mathcal{G}$};
+  \node[right=\hd of G2-2] (S2-2) {$S_2$};
+  \node[right=\hd of S2-2, draw] (G3-2) {$\mathcal{G}$};
+  \node[right=\hd of G3-2] (more-2) {$\cdots$};
+  
+  \node[below=\vd of G2-2] (b2-2) {$b_2$};
+  \node[below=\vd of G3-2] (b3-2) {$b_3$};
+
+  \arrowdraw(S1-2,G2-2);
+  \arrowdraw(G2-2,S2-2);
+  \arrowdraw(S2-2,G3-2);
+  \arrowdraw(G3-2,more-2);
+  
+  \darrowdraw(G2-2,b2-2);
+  \darrowdraw(G3-2,b3-2);
+  
+  % Row 3
+  \node[below=\vd*2 of case2] (case3) {$D_{1,2}$};
+  \node[below=\vd*3 of G1, align=center] (S1-3) {\color{red}\footnotesize $b_1 \overset{\mathrm{R}}{\leftarrow} \{0,1\}$ \\\color{red}\footnotesize $S_1 \overset{\mathrm{R}}{\leftarrow} \{0,1\}^{\lambda}$};
+  
+  \node[below=\vd*2 of S2-2] (S2-3) {\color{green} $S_2$};
+  \node[right=\hd of S2-3, draw] (G3-3) {$\mathcal{G}$};
+  \node[right=\hd of G3-3] (more-3) {$\cdots$};
+  
+  \node[below=\vd of G3-3] (b3-3) {$b_3$};
+
+  \arrowdraw(S2-3,G3-3);
+  \arrowdraw(G3-3,more-3);
+  
+  \darrowdraw(G3-3,b3-3);
+  
+  % Row 4
+  \node[below=\vd*0.55 of case3] (case4) {$\vdots$};
+  \node[below=\vd*5 of G1, align=center] (S1-4)
+  {\color{red}\footnotesize $b_1 \overset{\mathrm{R}}{\leftarrow} \{0,1\}$};
+  \node[below=\vd*5 of G2, align=center] (S2-4)
+  {\color{red}\footnotesize $b_2 \overset{\mathrm{R}}{\leftarrow} \{0,1\}$
+  \\\color{red}\footnotesize $S_2 \overset{\mathrm{R}}{\leftarrow} \{0,1\}^{\lambda}$};
+  
+  % Row 5
+  \node[below=\vd*0.55 of case4] (case5) {$D_2 = D_{1,m}$};
+  \node[below=\vd*7 of G1, align=center] (S1-5)
+  {\color{red}\footnotesize $b_1 \overset{\mathrm{R}}{\leftarrow} \{0,1\}$};
+  \node[below=\vd*7 of G2, align=center] (S2-5)
+  {\color{red}\footnotesize $b_2 \overset{\mathrm{R}}{\leftarrow} \{0,1\}$};
+  \node[below=\vd*7 of more, align=center] (S3-5)
+  {\\ \color{red}\footnotesize $\cdots$};
+  \node[right=\hd of S3-5, align=center] (S3-5)
+  {\\ \color{red}\footnotesize $b_m \overset{\mathrm{R}}{\leftarrow} \{0,1\}$};
+  
+\end{tikzpicture}
+\end{center}

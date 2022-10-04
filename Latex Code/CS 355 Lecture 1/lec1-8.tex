@@ -1,0 +1,37 @@
+% TIMELINE - simple test
+\vspace{1em}
+\begin{center}
+\begin{tikzpicture}
+    \def\hd{1.2cm}
+    \def\arrowdraw(#1,#2){
+    \draw[->] ($ (#1) + (0,\hd/3) $) -- ($ (#2) + (0,-\hd/3) $);
+    }
+  
+    \node (Sbox) at (0,0) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S$};
+    
+    \node (S0box) at (-0.5*\hd,-\hd) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S_0$};
+    \node (S1box) at (0.5*\hd,-\hd) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S_1$};
+    
+    \node (S00box) at (-1.5*\hd,-2*\hd) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S_{00}$};
+    \node (S01box) at (-0.5*\hd,-2*\hd) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S_{01}$}; 
+    \node (S10box) at (0.5*\hd,-2*\hd) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S_{10}$};
+    \node (S11box) at (1.5*\hd,-2*\hd) [draw,minimum width=\hd,minimum height=0.5*\hd] {$S_{11}$}; 
+    
+    \node[below=1 of S00box] (F00) {\small $F(S,00)$};
+    \node[below=1 of S01box] (F01) {\small $F(S,01)$};
+    \node[below=1 of S10box] (F10) {\small $F(S,10)$};
+    \node[below=1 of S11box] (F11) {\small $F(S,11)$};
+    
+    \draw[dashed] (Sbox.south west) -- (S0box.north west);
+    \draw[dashed] (Sbox.south east) -- (S1box.north east);
+    \draw[dashed] (S0box.south west) -- (S00box.north west);
+    \draw[dashed] (S1box.south east) -- (S11box.north east);   
+    
+    \arrowdraw(F00,S00box)
+    \arrowdraw(F01,S01box)
+    \arrowdraw(F10,S10box)
+    \arrowdraw(F11,S11box)
+    
+\end{tikzpicture}
+\end{center}
+\vspace{1em}

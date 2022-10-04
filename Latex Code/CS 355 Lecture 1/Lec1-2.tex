@@ -1,0 +1,11 @@
+% TIMELINE - simple test
+\vspace{1em}
+\begin{tikzpicture}[]
+    \node (Sbox) at (0,0) [draw,minimum width=3cm,minimum height=0.6cm] {$s$};
+    \node (Gbox) at (0,-1.5) [draw,minimum width=5.5cm,minimum height=0.6cm] {$G(s)$};
+    \draw[dashed] (Sbox.south west) -- (Gbox.north west);
+    \draw[dashed] (Sbox.south east) -- (Gbox.north east);
+    \node at (6,0) [align=center,font=\footnotesize] {$s \in \{0,1\}^{\lambda}$, $\lambda$ is the length of the seed \\ (i.e., security parameter)};
+    \node at (6,-1.5) [align=center,font=\footnotesize] {$G(s) \in \{0,1\}^{\ell(\lambda)}$, \\ often called the "stretch" of the PRG \\ {\color{purple} {Question: Why should $\ell(\lambda) > \lambda$}}}
+\end{tikzpicture}
+\vspace{1em}
